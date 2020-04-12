@@ -18,6 +18,16 @@ class App extends Component {
     console.log(e.pageX);
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submited");
+  };
+  handleChange = (e) => {
+    this.setState({
+      name: e.target.value,
+    });
+  };
+
   render() {
     return (
       <div className="app-content">
@@ -27,6 +37,11 @@ class App extends Component {
           Click Me
         </button>
         <button onMouseOver={this.handelMouseOver}>Hover, Me!</button>
+
+        <form className="form" onClick={this.handleSubmit}>
+          <input type="text" onChange={this.handleChange}></input>
+          <button>Submit</button>
+        </form>
       </div>
     );
   }
