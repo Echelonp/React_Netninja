@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    name: "Ryu",
+    age: 30,
+  };
+
+  handelClick = (e) => {
+    console.log(e.target);
+    this.setState({
+      name: "Paradorn",
+    });
+  };
+
+  handelMouseOver = (e) => {
+    console.log(e.pageX);
+  };
+
+  render() {
+    return (
+      <div className="app-content">
+        <h1>Hello, Para</h1>
+        <p>My name is {this.state.name}</p>
+        <button className="button" onClick={this.handelClick}>
+          Click Me
+        </button>
+        <button onMouseOver={this.handelMouseOver}>Hover, Me!</button>
+      </div>
+    );
+  }
 }
 
 export default App;
